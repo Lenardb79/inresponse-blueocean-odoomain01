@@ -1,0 +1,5 @@
+// Dark mode (loaded only in web.assets_web_dark): black/grey surfaces, blue accents
+.o_main_navbar { background-color: #0B0F14 !important; border-bottom: 1px solid #1E3A5F !important; }
+.o_main_navbar .o_nav_entry:hover, .o_main_navbar .dropdown-toggle:hover { background-color: #1E3A5F !important; }
+.btn-primary { --btn-bg: #3B82F6; --btn-border-color: #3B82F6; --btn-hover-bg: #2563EB; --btn-hover-border-color: #2563EB; --btn-color: #0B0F14; }
+a { color: #60A5FA; }
