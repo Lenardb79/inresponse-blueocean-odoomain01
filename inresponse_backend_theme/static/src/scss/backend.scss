@@ -1,0 +1,9 @@
+// Light mode: navy top bar, blue accents
+.o_main_navbar {
+    background-color: #1E3A5F !important;
+    border-bottom-color: #0B0F14 !important;
+}
+.o_main_navbar .o_menu_brand, .o_main_navbar .dropdown-toggle, .o_main_navbar .o_nav_entry { color: #E2E8F0 !important; }
+.o_main_navbar .o_nav_entry:hover, .o_main_navbar .dropdown-toggle:hover { background-color: #4A5568 !important; }
+.btn-primary { --btn-bg: #1E3A5F; --btn-border-color: #1E3A5F; --btn-hover-bg: #3B82F6; --btn-hover-border-color: #3B82F6; --btn-active-bg: #3B82F6; }
+.o_home_menu_background, .o_web_client.o_home_menu_background { background: linear-gradient(135deg, #0B0F14 0%, #1E3A5F 60%, #4A5568 100%) !important; }

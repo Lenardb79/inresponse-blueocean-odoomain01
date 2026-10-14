@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Template ids/xpaths confirmed against odoo/odoo 19.0 (web, mail, portal) -->
+<odoo>
+    <!-- Browser title fallback + favicon (web.layout) -->
+    <template id="layout_debrand" inherit_id="web.layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'InResponse'"/>
+        </xpath>
+        <xpath expr="//link[@rel='shortcut icon']" position="attributes">
+            <attribute name="t-att-href">x_icon or '/inresponse_debrand/static/img/favicon.ico'</attribute>
+        </xpath>
+    </template>
+    <template id="webclient_bootstrap_debrand" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//meta[@name='theme-color']" position="attributes">
+            <attribute name="content">#1E3A5F</attribute>
+        </xpath>
+    </template>
+    <!-- Login: remove Manage Databases + Powered by Odoo -->
+    <template id="login_layout_debrand" inherit_id="web.login_layout">
+        <xpath expr="//a[@href='/web/database/manager']/.." position="replace"/>
+        <xpath expr="//a[contains(@href, 'utm_medium=auth')]" position="replace"/>
+    </template>
+    <!-- Portal/website "Powered by Odoo" -->
+    <template id="brand_promotion_message_debrand" inherit_id="web.brand_promotion_message">
+        <xpath expr="//t[@t-out]" position="replace"/>
+    </template>
+    <template id="portal_sidebar_debrand" inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//a[contains(@href, 'utm_medium=portal')]/.." position="replace"/>
+    </template>
+    <!-- Email footers: keep Unfollow link, drop "Powered by Odoo" -->
+    <template id="mail_layout_debrand" inherit_id="mail.mail_notification_layout">
+        <xpath expr="//span[@id='mail_unfollow']/.." position="replace">
+            <div t-if="show_footer" style="color: #555555; font-size:11px;">
+                <span t-if="show_unfollow" id="mail_unfollow">
+                    <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                </span>
+            </div>
+        </xpath>
+    </template>
+    <template id="mail_light_debrand" inherit_id="mail.mail_notification_light">
+        <xpath expr="//span[@id='mail_unfollow']/.." position="replace">
+            <td align="center" style="min-width: 590px;">
+                <span t-if="show_unfollow" id="mail_unfollow">
+                    <a href="/mail/unfollow" style="text-decoration:none; color:#555555;">Unfollow</a>
+                </span>
+            </td>
+        </xpath>
+    </template>
+</odoo>
